@@ -1,0 +1,40 @@
+﻿<Window x:Class="AutoID.Views.AddTaskView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавление нового задания"
+		Height="300" Width="300">
+	<DockPanel Margin="10">
+		<StackPanel DockPanel.Dock="Bottom" Margin="0 10 0 0">
+			<Button Margin="0 0 5 0" Command="{Binding AddTaskCommand}">Добавить</Button>
+			<Button Margin="0 0 5 0" Command="{Binding CancelCommand}">Отменить</Button>
+		</StackPanel>
+		<Grid DockPanel.Dock="Top">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="25" />
+				<RowDefinition Height="25" />
+				<RowDefinition Height="25" />
+				<RowDefinition Height="25" />
+				<RowDefinition Height="25" />
+			</Grid.RowDefinitions>
+
+			<TextBlock Grid.Column="0" Grid.Row="0">Тип проблемы</TextBlock>
+			<ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding IssueTypes}" SelectedItem="{Binding SelectedIssueType}"></ComboBox>
+
+			<TextBlock Grid.Column="0" Grid.Row="1">Название</TextBlock>
+			<TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Name}"></TextBox>
+
+			<TextBlock Grid.Column="0" Grid.Row="2">Комментарий</TextBlock>
+			<TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Comment}"></TextBox>
+
+			<TextBlock Grid.Column="0" Grid.Row="3">Срочность</TextBlock>
+			<ComboBox Grid.Column="1" Grid.Row="3" ItemsSource="{Binding IssuePriority}" SelectedItem="{Binding SelectedIssuePriority}"></ComboBox>
+
+			<TextBlock Grid.Column="0" Grid.Row="4" Text="Автор заявки"></TextBlock>
+			<TextBox Text="{Binding ReporterName}" Grid.Column="1" Grid.Row="4"></TextBox>
+		</Grid>
+	</DockPanel>
+</Window>
