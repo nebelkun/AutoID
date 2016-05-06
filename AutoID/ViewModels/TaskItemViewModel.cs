@@ -1,11 +1,12 @@
-﻿using System;
-using AutoID.DataHolders;
+﻿using AutoID.DataHolders;
 using AutoID.Helpers.WPF;
+using System;
 
 namespace AutoID.ViewModels
 {
-	public class TaskItemViewModel: BaseViewModel
+	public class TaskItemViewModel : BaseViewModel
 	{
+		public int No { get; set; }
 		public Guid Id { get; set; }
 
 		public IssueType IssueType { get; set; }

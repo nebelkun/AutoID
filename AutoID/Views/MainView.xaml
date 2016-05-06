@@ -17,10 +17,14 @@
 			<Button Margin="0 0 5 0" Padding="5" Command="{Binding RemoveTaskCommand}">Удалить</Button>
 		</StackPanel>
 
-		<DataGrid DockPanel.Dock="Top" ItemsSource="{Binding TaskList}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedTask}">
+		<DataGrid DockPanel.Dock="Top" ItemsSource="{Binding TaskList}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedTask}" CanUserAddRows="False">
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="№" Binding="{Binding Id}"></DataGridTextColumn>
-				<DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}"></DataGridTextColumn>
+				<DataGridTextColumn Header="№" Binding="{Binding No}" />
+				<DataGridTextColumn Header="Тип проблемы" Binding="{Binding IssueType}" />
+				<DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}" />
+				<DataGridTextColumn Header="Автор" Binding="{Binding ReporterName}" />
+				<DataGridTextColumn Header="Работник" Binding="{Binding AssigneeName}" />
+				<DataGridTextColumn Header="Статус" Binding="{Binding IssueStatus}" />
 			</DataGrid.Columns>
 		</DataGrid>
 	</DockPanel>
