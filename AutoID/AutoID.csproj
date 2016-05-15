@@ -58,12 +58,10 @@
     <Compile Include="Converters\PriorityToColorConverter.cs" />
     <Compile Include="DataHolders\IssueStatus.cs" />
     <Compile Include="DataHolders\Priority.cs" />
-    <Compile Include="Helpers\WPF\BaseViewModel.cs" />
-    <Compile Include="Helpers\WPF\NotifyPropertyChangedHelper.cs" />
-    <Compile Include="Helpers\WPF\RelayCommand.cs" />
-    <Compile Include="Models\Task.cs" />
     <Compile Include="DataHolders\IssueType.cs" />
     <Compile Include="ViewModels\AddTaskViewModel.cs" />
+    <Compile Include="ViewModels\EquipmentViewModel.cs" />
+    <Compile Include="ViewModels\HelpdeskViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ResolveTaskViewModel.cs" />
     <Compile Include="Views\ResolveTaskView.xaml.cs">
@@ -107,7 +105,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{781C0A08-2739-46BE-955B-2DB887F30CB7}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{877AD91D-45E5-43B6-81CF-0B3B81A8BF66}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

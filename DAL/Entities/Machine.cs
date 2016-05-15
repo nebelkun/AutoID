@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1
+namespace AutoID.Models
 {
-    public class Reader
-    {
-    }
+	public class Machine
+	{
+
+	}
 }

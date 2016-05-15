@@ -1,0 +1,31 @@
+﻿<Window x:Class="AutoIDClient.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Title="Информация о системе"
+		Height="350"
+		Width="525">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.7*" />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition Height="35" />
+		</Grid.RowDefinitions>
+		<DataGrid>
+			<DataGrid.Columns>
+				<DataGridTemplateColumn>
+
+				</DataGridTemplateColumn>
+				<DataGridTemplateColumn>
+
+				</DataGridTemplateColumn>
+			</DataGrid.Columns>
+		</DataGrid>
+		<Button Margin="5 0 5 5"
+				Grid.Row="1"
+				Command="{Binding RegisterMachine}"
+				Content="Зарегистрировать компьютер" />
+	</Grid>
+</Window>

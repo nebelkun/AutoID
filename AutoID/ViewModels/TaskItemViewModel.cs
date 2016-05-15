@@ -1,5 +1,5 @@
 ﻿using AutoID.DataHolders;
-using AutoID.Helpers.WPF;
+using Common.Helpers.WPF;
 using System;
 
 namespace AutoID.ViewModels
@@ -26,7 +26,8 @@ namespace AutoID.ViewModels
 		public string ReporterName { get; set; }
 
 		public IssueStatus IssueStatus { get; set; }
-
+		public string Custom1 { get; set; }
+		public string Custom2 { get; set; }
 		public TaskItemViewModel()
 		{
 			Id = Guid.NewGuid();

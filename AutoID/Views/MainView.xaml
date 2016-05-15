@@ -1,31 +1,66 @@
 ﻿<Window x:Class="AutoID.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
 		xmlns:vm="clr-namespace:AutoID.ViewModels"
-        Title="MainWindow"
+        Title="AutoID Manager"
 		Height="350" Width="525">
-	<Window.DataContext>
-		<vm:MainViewModel />
-	</Window.DataContext>
-	<DockPanel Margin="10">
-		<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0 10 0 0">
-			<Button Margin="0 0 5 0" Padding="5" Command="{Binding AddTaskCommand}">Добавить</Button>
-			<Button Margin="0 0 5 0" Padding="5" Command="{Binding CloseTaskCommand}">Закрыть</Button>
-			<Button Margin="0 0 5 0" Padding="5" Command="{Binding RemoveTaskCommand}">Удалить</Button>
-		</StackPanel>
+	<TabControl>
+		<TabItem Header="Хелпдеск">
+			<TabItem.DataContext>
+				<vm:HelpdeskViewModel />
+			</TabItem.DataContext>
+			<DockPanel Margin="10">
+				<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0 10 0 0">
+					<Button Margin="0 0 5 0" Padding="5" Command="{Binding AddCommand}">Добавить вручную</Button>
+					<Button Margin="0 0 5 0" Padding="5" Command="{Binding PropertiesCommand}">Сведения</Button>
+					<Button Margin="0 0 5 0" Padding="5" Command="{Binding RefreshCommand}">Обновить</Button>
+					<Button Margin="0 0 5 0" Padding="5" Command="{Binding EditCommand}">Редактировать</Button>
+					<Button Margin="0 0 5 0" Padding="5" Command="{Binding RemoveCommand}">Удалить</Button>
+				</StackPanel>
 
-		<DataGrid DockPanel.Dock="Top" ItemsSource="{Binding TaskList}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedTask}" CanUserAddRows="False">
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="№" Binding="{Binding No}" />
-				<DataGridTextColumn Header="Тип проблемы" Binding="{Binding IssueType}" />
-				<DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}" />
-				<DataGridTextColumn Header="Автор" Binding="{Binding ReporterName}" />
-				<DataGridTextColumn Header="Работник" Binding="{Binding AssigneeName}" />
-				<DataGridTextColumn Header="Статус" Binding="{Binding IssueStatus}" />
-			</DataGrid.Columns>
-		</DataGrid>
-	</DockPanel>
+				<DataGrid DockPanel.Dock="Top"
+						  ItemsSource="{Binding EqiuipmentList}"
+						  AutoGenerateColumns="False"
+						  SelectedItem="{Binding SelectedEquipment}"
+						  CanUserAddRows="False">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="№" Binding="{Binding No}" />
+						<DataGridTextColumn Header="Имя компьютера" Binding="{Binding MachineName}" />
+						<DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}" />
+						<DataGridTextColumn Header="Закреплён за" Binding="{Binding OwnerName}" />
+						<DataGridTextColumn Header="MAC" Binding="{Binding MacAdress}" />
+						<DataGridTextColumn Header="Отдел" Binding="{Binding Department}" />
+					</DataGrid.Columns>
+				</DataGrid>
+			</DockPanel>
+		</TabItem>
+		<TabItem Header="Оборудование">
+			<TabItem.DataContext>
+				<vm:EquipmentViewModel />
+			</TabItem.DataContext>
+
+			<DockPanel Margin="10">
+				<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0 10 0 0">
+					<Button Margin="0 0 5 0" Padding="5" Command="{Binding DetailsCommand}">Сведения</Button>
+					<Button Margin="0 0 5 0" Padding="5" Command="{Binding RefreshCommand}">Обновить спецификацию</Button>
+					<Button Margin="0 0 5 0" Padding="5" Command="{Binding RemoveCommand}">Удалить</Button>
+				</StackPanel>
+
+				<DataGrid DockPanel.Dock="Top"
+						  ItemsSource="{Binding EqiuipmentList}"
+						  AutoGenerateColumns="False"
+						  SelectedItem="{Binding SelectedEquipment}"
+						  CanUserAddRows="False">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="№" Binding="{Binding No}" />
+						<DataGridTextColumn Header="Имя компьютера" Binding="{Binding MachineName}" />
+						<DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}" />
+						<DataGridTextColumn Header="Закреплён за" Binding="{Binding OwnerName}" />
+						<DataGridTextColumn Header="MAC" Binding="{Binding MacAdress}" />
+						<DataGridTextColumn Header="Отдел" Binding="{Binding Department}" />
+					</DataGrid.Columns>
+				</DataGrid>
+			</DockPanel>
+		</TabItem>
+	</TabControl>
 </Window>
