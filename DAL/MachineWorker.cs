@@ -4,11 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1
+namespace DAL
 {
-	public static class Reader
+	public static class MachineWorker
 	{
 		public static bool RegisterMachine()
+		{
+			return false;
+		}
+
+		public static bool RemoveMachine()
+		{
+			return false;
+		}
+
+		public static bool UpdateMachine()
 		{
 			return false;
 		}

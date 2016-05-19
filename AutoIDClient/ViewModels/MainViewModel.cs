@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Helpers.WPF;
+﻿using Common.Helpers.WPF;
+using Common.Helpers;
+using DAL;
+using System.Windows;
 
 namespace AutoIDClient.ViewModels
 {
@@ -12,11 +10,19 @@ namespace AutoIDClient.ViewModels
 		public MainViewModel()
 		{
 			RegisterCommand = new RelayCommand(OnRegister);
+			CPU = HardwareInfoGetter.GetProcessorId();
+			RamVolume = HardwareInfoGetter.GetPhysicalMemory();
+			HddSN = HardwareInfoGetter.GetHDDSerialNo();
+			OS = HardwareInfoGetter.GetOSInformation();
+			MAC = HardwareInfoGetter.GetMACAddress();
 		}
 
-		private void OnRegister()
+		void OnRegister()
 		{
-			
+			if (MachineWorker.RegisterMachine())
+				MessageBox.Show("Успешно зарегистрировано");
+			else
+				MessageBox.Show("Ошибка регистрации компьютера");
 		}
 
 		public RelayCommand RegisterCommand { get; set; }
@@ -26,5 +32,8 @@ namespace AutoIDClient.ViewModels
 		public string HddSN { get; set; }
 		public string OS { get; set; }
 		public string MAC { get; set; }
+		public string Comment { get; set; }
+		public string Department { get; set; }
+		public string Owner { get; set; }
 	}
 }

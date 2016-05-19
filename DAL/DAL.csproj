@@ -43,8 +43,9 @@
     <Compile Include="Entities\HardwareInfo.cs" />
     <Compile Include="Entities\Machine.cs" />
     <Compile Include="Entities\Task.cs" />
-    <Compile Include="Reader.cs" />
+    <Compile Include="MachineWorker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskWorker.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

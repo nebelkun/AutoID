@@ -1,28 +1,36 @@
 ﻿<Window x:Class="AutoIDClient.MainWindow"
 		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:vm="clr-namespace:AutoIDClient.ViewModels"
 		Title="Информация о системе"
 		Height="350"
 		Width="525">
+	<Window.DataContext>
+		<vm:MainViewModel />
+	</Window.DataContext>
 	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="0.7*" />
-			<ColumnDefinition />
-		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition />
 			<RowDefinition Height="35" />
 		</Grid.RowDefinitions>
-		<DataGrid>
-			<DataGrid.Columns>
-				<DataGridTemplateColumn>
-
-				</DataGridTemplateColumn>
-				<DataGridTemplateColumn>
-
-				</DataGridTemplateColumn>
-			</DataGrid.Columns>
-		</DataGrid>
+		<UniformGrid Rows="8" Columns="2" Margin="5">
+			<TextBlock Text="CPU" />
+			<TextBlock Text="{Binding CPU}" />
+			<TextBlock Text="RamVolume" />
+			<TextBlock Text="{Binding RamVolume}" />
+			<TextBlock Text="HddSN" />
+			<TextBlock Text="{Binding HddSN}" />
+			<TextBlock Text="OS" />
+			<TextBlock Text="{Binding OS}" />
+			<TextBlock Text="MAC" />
+			<TextBlock Text="{Binding MAC}" />
+			<TextBlock Text="Comment" />
+			<TextBox Text="{Binding Comment}" />
+			<TextBlock Text="Department" />
+			<TextBox Text="{Binding Department}" />
+			<TextBlock Text="Owner" />
+			<TextBox Text="{Binding Owner}" />
+		</UniformGrid>
 		<Button Margin="5 0 5 5"
 				Grid.Row="1"
 				Command="{Binding RegisterMachine}"
