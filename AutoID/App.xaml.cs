@@ -12,6 +12,12 @@ namespace AutoID
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
-    {
-    }
+	{
+		private void Application_Startup(object sender, StartupEventArgs e)
+		{
+			Application.Current.Resources.MergedDictionaries.Add(LoadComponent(
+													 new Uri("AutoID;component/DataTemplates/DataTemplates.xaml", UriKind.Relative)) as ResourceDictionary);
+		}
+	}
+
 }

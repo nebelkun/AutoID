@@ -8,8 +8,8 @@ namespace AutoID.DataHolders
 {
 	public enum IssueStatus
 	{
-		Простой = 1,
-		Работа = 2,
+		Открыт = 1,
+		В_работе = 2,
 		Завершен = 3,
 	}
 }

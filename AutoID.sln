@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoID", "AutoID.csproj", "{A400E3D5-477D-4C19-A5DE-FF50FA77A2C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoID", "AutoID\AutoID.csproj", "{A400E3D5-477D-4C19-A5DE-FF50FA77A2C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common.csproj", "{781C0A08-2739-46BE-955B-2DB887F30CB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{781C0A08-2739-46BE-955B-2DB887F30CB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoIDClient", "..\AutoIDClient\AutoIDClient.csproj", "{EEFB5294-6BF7-47BE-A436-682D1169BE7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoIDClient", "AutoIDClient\AutoIDClient.csproj", "{EEFB5294-6BF7-47BE-A436-682D1169BE7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\DAL\DAL.csproj", "{877AD91D-45E5-43B6-81CF-0B3B81A8BF66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{877AD91D-45E5-43B6-81CF-0B3B81A8BF66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

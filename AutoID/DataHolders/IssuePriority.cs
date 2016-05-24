@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoID.DataHolders
 {
-	public enum Priority
+	public enum IssuePriority
 	{
 		Высокий = 1,
 		Средний = 2,
