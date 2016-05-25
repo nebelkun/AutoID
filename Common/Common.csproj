@@ -35,6 +35,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,9 +46,16 @@
   <ItemGroup>
     <Compile Include="Helpers\HardwareInfoGetter.cs" />
     <Compile Include="Helpers\WPF\BaseViewModel.cs" />
+    <Compile Include="Helpers\WPF\EnumerationExtension.cs" />
     <Compile Include="Helpers\WPF\NotifyPropertyChangedHelper.cs" />
     <Compile Include="Helpers\WPF\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{877ad91d-45e5-43b6-81cf-0b3b81a8bf66}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

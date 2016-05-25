@@ -1,11 +1,23 @@
 ﻿using AutoID.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DAL
 {
 	public static class MachineWorker
 	{
+
+		public static IEnumerable<Machine> ReadAll()
+		{
+			using (var db = new AutoIDContext())
+			{
+				return (from m in db.Machines
+						select m).ToList();
+			}
+		}
+
+
 		public static bool RegisterMachine(Machine machine)
 		{
 			using (var db = new AutoIDContext())

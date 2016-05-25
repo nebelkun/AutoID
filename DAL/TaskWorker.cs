@@ -18,7 +18,15 @@ namespace DAL
 
 		public static bool NewTask(AutoID.Models.Task task)
 		{
-			return false;
+			using (var db = new AutoIDContext())
+			{
+				db.Tasks.Add(task);
+				if (db.SaveChanges() >= 0)
+				{
+					return true;
+				}
+				return false;
+			}
 		}
 
 		public static bool EditTask(AutoID.Models.Task task)

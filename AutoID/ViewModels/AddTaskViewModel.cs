@@ -1,47 +1,76 @@
 ﻿using System;
 using AutoID.DataHolders;
 using Common.Helpers.WPF;
+using System.Windows;
 
 namespace AutoID.ViewModels
 {
 	public class AddTaskViewModel : BaseViewModel
 	{
-		public TaskItemViewModel Task { get; set; }
+		public TaskViewModel Task { get; set; }
 		public AddTaskViewModel()
 		{
-			SaveCommand = new RelayCommand(OnSave, CanSave);
+			SaveCommand = new RelayCommand<Window>(OnSave, CanSave);
 		}
 
-		bool CanSave()
+		void OnCancel(Window window)
+		{
+			if (window != null)
+			{
+				window.DialogResult = false;
+				window.Close();
+			}
+		}
+
+		bool CanSave(Window window)
 		{
 			return !string.IsNullOrWhiteSpace(Name);
 		}
 
-		void OnSave()
+		void OnSave(Window window)
 		{
-			Task = new TaskItemViewModel
+			Task = new TaskViewModel
 			{
 				AssigneeName = AssigneeName,
 				Comment = Comment,
 				IssueType = SelectedIssueType,
-				Priority = SelectedIssuePriority,
+				Priority = SelectedPriority,
 				ReporterName = ReporterName,
 				IssueStatus = IssueStatus.Открыт,
-
+				OpenDate = DateTime.Now,
 			};
-
+			window.DialogResult = true;
+			window.Close();
 		}
 
-		public IssueType IssueTypes { get; set; }
-		public IssueType SelectedIssueType { get; set; }
+		IssueType _selectedIssueType;
+		public IssueType SelectedIssueType
+		{
+			get { return _selectedIssueType;  }
+			set
+			{
+				_selectedIssueType = value;
+				OnPropertyChanged(() => SelectedIssueType);
+			}
+		}
 		public string Name { get; set; }
 		public string Comment { get; set; }
-		public IssuePriority IssuePriorities { get; set; }
-		public IssuePriority SelectedIssuePriority { get; set; }
+
+		IssuePriority _selectedPriority;
+		public IssuePriority SelectedPriority
+		{
+			get { return _selectedPriority; }
+			set
+			{
+				_selectedPriority = value;
+				OnPropertyChanged(() => SelectedPriority);
+			}
+		}
+
 		public string ReporterName { get; set; }
 		public string AssigneeName { get; set; }
 
 
-		public RelayCommand SaveCommand { get; set; }
+		public RelayCommand<Window> SaveCommand { get; set; }
 	}
 }

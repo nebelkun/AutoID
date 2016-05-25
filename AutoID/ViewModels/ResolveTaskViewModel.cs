@@ -4,11 +4,11 @@ namespace AutoID.ViewModels
 {
 	public class ResolveTaskViewModel : BaseViewModel
 	{
-		public ResolveTaskViewModel(TaskItemViewModel vm)
+		public ResolveTaskViewModel(TaskViewModel vm)
 		{
 			Model = vm;
 		}
 
-		public TaskItemViewModel Model { get; set; }
+		public TaskViewModel Model { get; set; }
 	}
 }

@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using AutoID.Views;
 using Common.Helpers.WPF;
 using DAL;
 using AutoID.DataHolders;
+using AutoID.Helpers;
+using System;
 
 namespace AutoID.ViewModels
 {
@@ -11,39 +12,39 @@ namespace AutoID.ViewModels
 	{
 		public HelpdeskViewModel()
 		{
-			AddTaskCommand = new RelayCommand(OnAddTask);
-			ResolveCommand = new RelayCommand(OnResolveTask, CanCloseTask);
-			RemoveTaskCommand = new RelayCommand(OnRemoveCommand, CanRemoveTask);
+			AddCommand = new RelayCommand(OnAdd);
+			ResolveCommand = new RelayCommand(OnResolve, CanClose);
+			RemoveCommand = new RelayCommand(OnRemoveCommand, CanRemove);
+			EditCommand = new RelayCommand(OnEdit, CanEdit);
 			FillTaskList();
+		}
+
+		private bool CanEdit()
+		{
+			throw new NotImplementedException();
+		}
+
+		private void OnEdit()
+		{
+			throw new NotImplementedException();
 		}
 
 		void FillTaskList()
 		{
-			TaskList = new ObservableCollection<TaskItemViewModel>();
+			TaskList = new ObservableCollection<TaskViewModel>();
 			var entities = TaskWorker.ReadAll();
 			foreach (var item in entities)
 			{
-				TaskList.Add(new TaskItemViewModel
-				{
-					AssigneeName = item.AssigneeName,
-					Comment = item.Comment,
-					Id = item.Id,
-					IsDone = item.IsDone,
-					IssueStatus = (IssueStatus)item.IssueStatus,
-					IssueType = (IssueType)item.IssueType,
-					No = item.No,
-					Priority = (IssuePriority)item.Priority,
-					ReporterName = item.ReporterName,
-				});
+				TaskList.Add(EntityViewModelConverter.Convert(item));
 			}
 		}
 
-		bool CanRemoveTask()
+		bool CanRemove()
 		{
 			return SelectedTask != null;
 		}
 
-		bool CanCloseTask()
+		bool CanClose()
 		{
 			return SelectedTask != null;
 		}
@@ -53,32 +54,34 @@ namespace AutoID.ViewModels
 			TaskList.Remove(SelectedTask);
 		}
 
-		void OnResolveTask()
+		void OnResolve()
 		{
 			ResolveTaskView view = new ResolveTaskView();
 			view.DataContext = new ResolveTaskViewModel(SelectedTask);
 			view.ShowDialog();
 		}
 
-		void OnAddTask()
+		void OnAdd()
 		{
 			AddTaskView view = new AddTaskView();
 			var vm = new AddTaskViewModel();
 			view.DataContext = vm;
-			var result = view.ShowDialog();
-			if (result.Value)
+			var dialogResult = view.ShowDialog();
+			if (dialogResult != null && (bool)dialogResult)
 			{
 				TaskList.Add(vm.Task);
+				TaskWorker.NewTask(EntityViewModelConverter.Convert(vm.Task));
 			}
 		}
-		public TaskItemViewModel SelectedTask { get; set; }
+		public TaskViewModel SelectedTask { get; set; }
 
-		public ObservableCollection<TaskItemViewModel> TaskList { get; set; }
+		public ObservableCollection<TaskViewModel> TaskList { get; set; }
 
-		public RelayCommand AddTaskCommand { get; set; }
+		public RelayCommand AddCommand { get; set; }
+		public RelayCommand EditCommand { get; set; }
 		public RelayCommand PropertiesCommand { get; set; }
 		public RelayCommand RefreshCommand { get; set; }
 		public RelayCommand ResolveCommand { get; set; }
-		public RelayCommand RemoveTaskCommand { get; set; }
+		public RelayCommand RemoveCommand { get; set; }
 	}
 }

@@ -4,7 +4,7 @@ using System;
 
 namespace AutoID.ViewModels
 {
-	public class TaskItemViewModel : BaseViewModel
+	public class TaskViewModel : BaseViewModel
 	{
 		public int No { get; set; }
 		public Guid Id { get; set; }
@@ -15,7 +15,10 @@ namespace AutoID.ViewModels
 		public string AssigneeName { get; set; }
 		public string ReporterName { get; set; }
 		public IssueStatus IssueStatus { get; set; }
-		public TaskItemViewModel()
+		public DateTime? ClosedDate { get; set; }
+		public DateTime OpenDate { get; set; }
+		public string Name { get; set; }
+		public TaskViewModel()
 		{
 			Id = Guid.NewGuid();
 		}

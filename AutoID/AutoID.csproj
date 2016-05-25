@@ -68,9 +68,11 @@
     <Compile Include="DataHolders\IssueStatus.cs" />
     <Compile Include="DataHolders\IssuePriority.cs" />
     <Compile Include="DataHolders\IssueType.cs" />
+    <Compile Include="Helpers\EntityViewModelConverter.cs" />
     <Compile Include="ViewModels\AddTaskViewModel.cs" />
     <Compile Include="ViewModels\EquipmentViewModel.cs" />
     <Compile Include="ViewModels\HelpdeskViewModel.cs" />
+    <Compile Include="ViewModels\MachineViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ResolveTaskViewModel.cs" />
     <Compile Include="Views\EquipmentView.xaml.cs">
@@ -106,7 +108,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\TaskItemViewModel.cs" />
+    <Compile Include="ViewModels\TaskViewModel.cs" />
     <Compile Include="Views\AddTaskView.xaml.cs">
       <DependentUpon>AddTaskView.xaml</DependentUpon>
     </Compile>
