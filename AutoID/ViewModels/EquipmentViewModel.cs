@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using Common.Helpers.WPF;
 using DAL;
 using AutoID.Helpers;
@@ -9,10 +9,8 @@ namespace AutoID.ViewModels
 {
 	public class EquipmentViewModel : BaseViewModel
 	{
-
 		public EquipmentViewModel()
 		{
-			DetailsCommand = new RelayCommand(OnDetails);
 			RefreshCommand = new RelayCommand(OnRefresh);
 			RemoveCommand = new RelayCommand(OnRemove);
 			ExportCommand = new RelayCommand(OnExport);
@@ -21,7 +19,7 @@ namespace AutoID.ViewModels
 
 		void OnExport()
 		{
-			ExportHelper.MachineList("C:\\", "test", EquipmentList);
+			MessageBox.Show(ExportHelper.MachineList("C:\\", "MachineList", EquipmentList) ? "Экспорт завершён" : "Ошибка экспорта");
 		}
 
 		void FillEquipment()
@@ -29,30 +27,24 @@ namespace AutoID.ViewModels
 			EquipmentList = new ObservableCollection<MachineViewModel>();
 			var entities = MachineWorker.ReadAll();
 			foreach (Machine item in entities)
-			{
 				EquipmentList.Add(EntityViewModelConverter.Convert(item));
-			}
+			OnPropertyChanged(() => EquipmentList);
 		}
 
 		void OnRefresh()
 		{
-			throw new NotImplementedException();
+			FillEquipment();
 		}
 
 		void OnRemove()
 		{
-			throw new NotImplementedException();
-		}
-
-		void OnDetails()
-		{
-			throw new NotImplementedException();
+			MachineWorker.RemoveMachine(SelectedMachine.Id);
+			EquipmentList.Remove(SelectedMachine);
 		}
 
 		public ObservableCollection<MachineViewModel> EquipmentList { get; set; }
-		public Machine SelectedMachine { get; set; }
+		public MachineViewModel SelectedMachine { get; set; }
 
-		public RelayCommand DetailsCommand { get; set; }
 		public RelayCommand RefreshCommand { get; set; }
 		public RelayCommand RemoveCommand { get; set; }
 		public RelayCommand ExportCommand { get; set; }

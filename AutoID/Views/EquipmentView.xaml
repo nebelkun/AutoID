@@ -11,8 +11,13 @@
 			<Button Margin="0 0 5 0" Padding="5" Command="{Binding ExportCommand}">Экспорт</Button>
 			<Button Margin="0 0 5 0" Padding="5" Command="{Binding RemoveCommand}">Удалить</Button>
 		</StackPanel>
-		<DataGrid DockPanel.Dock="Top" ItemsSource="{Binding EquipmentList}"
-				  AutoGenerateColumns="False" SelectedItem="{Binding SelectedMachine}" CanUserAddRows="False">
+		<DataGrid DockPanel.Dock="Top"
+				  ItemsSource="{Binding EquipmentList}"
+				  AutoGenerateColumns="False"
+				  SelectedItem="{Binding SelectedMachine}"
+				  CanUserAddRows="False"
+				  SelectionMode="Single"
+				  SelectionUnit="FullRow">
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="Имя компьютера" Binding="{Binding Name}" />
 				<DataGridTextColumn Header="Комментарий"	Binding="{Binding Comment}" />
