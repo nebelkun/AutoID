@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using AutoID.Models;
 using Common.Helpers.WPF;
 using DAL;
 using AutoID.Helpers;
+using DAL.Entities;
 
 namespace AutoID.ViewModels
 {
@@ -15,10 +15,16 @@ namespace AutoID.ViewModels
 			DetailsCommand = new RelayCommand(OnDetails);
 			RefreshCommand = new RelayCommand(OnRefresh);
 			RemoveCommand = new RelayCommand(OnRemove);
+			ExportCommand = new RelayCommand(OnExport);
 			FillEquipment();
 		}
 
-		private void FillEquipment()
+		void OnExport()
+		{
+			NpoiWorker.ExportMachineList("C:\\", "test", EquipmentList);
+		}
+
+		void FillEquipment()
 		{
 			EquipmentList = new ObservableCollection<MachineViewModel>();
 			var entities = MachineWorker.ReadAll();
@@ -28,17 +34,17 @@ namespace AutoID.ViewModels
 			}
 		}
 
-		private void OnRefresh()
+		void OnRefresh()
 		{
 			throw new NotImplementedException();
 		}
 
-		private void OnRemove()
+		void OnRemove()
 		{
 			throw new NotImplementedException();
 		}
 
-		private void OnDetails()
+		void OnDetails()
 		{
 			throw new NotImplementedException();
 		}
@@ -49,6 +55,6 @@ namespace AutoID.ViewModels
 		public RelayCommand DetailsCommand { get; set; }
 		public RelayCommand RefreshCommand { get; set; }
 		public RelayCommand RemoveCommand { get; set; }
-
+		public RelayCommand ExportCommand { get; set; }
 	}
 }

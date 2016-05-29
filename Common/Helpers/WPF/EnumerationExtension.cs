@@ -7,7 +7,7 @@ namespace Common.Helpers.WPF
 {
 	public class EnumerationExtension : MarkupExtension
 	{
-		private Type _enumType;
+		Type _enumType;
 
 
 		public EnumerationExtension(Type enumType)
@@ -48,7 +48,7 @@ namespace Common.Helpers.WPF
 			  }).ToArray();
 		}
 
-		private string GetDescription(object enumValue)
+		string GetDescription(object enumValue)
 		{
 			var descriptionAttribute = EnumType
 			  .GetField(enumValue.ToString())

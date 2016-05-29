@@ -2,20 +2,20 @@
 using AutoID.ViewModels;
 using System;
 using System.Data.SqlTypes;
+using DAL.Entities;
 
 namespace AutoID.Helpers
 {
 	public static class EntityViewModelConverter
 	{
-		public static Models.Task Convert(TaskViewModel task)
+		public static Task Convert(TaskViewModel task)
 		{
-			return new Models.Task
+			return new Task
 			{
 				AssigneeName = task.AssigneeName,
-				ClosedDate = (task.ClosedDate >= (DateTime)SqlDateTime.MinValue) ? task.ClosedDate : (DateTime?)null,
+				ClosedDate = task.ClosedDate >= (DateTime)SqlDateTime.MinValue ? task.ClosedDate : null,
 				Comment = task.Comment,
 				Id = task.Id,
-				IsDone = task.IsDone,
 				IssueStatus = (int)task.IssueStatus,
 				IssueType = (int)task.IssueType,
 				Name = task.Name,
@@ -25,7 +25,7 @@ namespace AutoID.Helpers
 				ReporterName = task.ReporterName,
 			};
 		}
-		public static TaskViewModel Convert(Models.Task task)
+		public static TaskViewModel Convert(Task task)
 		{
 			return new TaskViewModel
 			{
@@ -33,7 +33,6 @@ namespace AutoID.Helpers
 				ClosedDate = task.ClosedDate,
 				Comment = task.Comment,
 				Id = task.Id,
-				IsDone = task.IsDone,
 				IssueStatus = (IssueStatus)task.IssueStatus,
 				IssueType = (IssueType)task.IssueType,
 				Name = task.Name,
@@ -43,9 +42,9 @@ namespace AutoID.Helpers
 				ReporterName = task.ReporterName,
 			};
 		}
-		public static Models.Machine Convert(MachineViewModel machine)
+		public static Machine Convert(MachineViewModel machine)
 		{
-			return new Models.Machine
+			return new Machine
 			{
 				Comment =machine.Comment,
 				CPUID = machine.CPUID,
@@ -59,7 +58,7 @@ namespace AutoID.Helpers
 				Ram = machine.Ram,
 			};
 		}
-		public static MachineViewModel Convert(Models.Machine machine)
+		public static MachineViewModel Convert(Machine machine)
 		{
 			return new MachineViewModel
 			{
@@ -75,6 +74,5 @@ namespace AutoID.Helpers
 				Ram = machine.Ram,
 			};
 		}
-
 	}
 }

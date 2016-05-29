@@ -2,8 +2,7 @@
 using Common.Helpers;
 using DAL;
 using System.Windows;
-using AutoID.Models;
-using System;
+using DAL.Entities;
 
 namespace AutoIDClient.ViewModels
 {
@@ -72,10 +71,7 @@ namespace AutoIDClient.ViewModels
 
 		void OnRegister()
 		{
-			if (MachineWorker.RegisterMachine(Machine))
-				MessageBox.Show("Успешно зарегистрировано");
-			else
-				MessageBox.Show("Ошибка регистрации компьютера");
+			MessageBox.Show(MachineWorker.RegisterMachine(Machine) ? "Успешно зарегистрировано" : "Ошибка регистрации компьютера");
 		}
 
 		public RelayCommand RegisterCommand { get; set; }

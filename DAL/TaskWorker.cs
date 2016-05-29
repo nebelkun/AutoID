@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
+using DAL.Entities;
 
 namespace DAL
 {
 	public static class TaskWorker
 	{
-		public static IEnumerable<AutoID.Models.Task> ReadAll()
+		public static IEnumerable<Task> ReadAll()
 		{
 			using (var db = new AutoIDContext())
 			{
@@ -16,7 +16,7 @@ namespace DAL
 			}
 		}
 
-		public static bool NewTask(AutoID.Models.Task task)
+		public static bool NewTask(Task task)
 		{
 			using (var db = new AutoIDContext())
 			{
@@ -29,7 +29,7 @@ namespace DAL
 			}
 		}
 
-		public static bool EditTask(AutoID.Models.Task task)
+		public static bool EditTask(Task task)
 		{
 			return false;
 		}

@@ -1,27 +1,27 @@
-﻿<UserControl x:Class="AutoID.Views.HelpdeskView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		xmlns:local="clr-namespace:AutoID.Views" xmlns:vm="clr-namespace:AutoID.ViewModels">
+﻿<UserControl x:Class="AutoID.Views.HelpdeskView"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:vm="clr-namespace:AutoID.ViewModels">
 	<UserControl.DataContext>
 		<vm:HelpdeskViewModel />
 	</UserControl.DataContext>
 	<DockPanel Margin="10">
 		<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0 10 0 0">
-			<Button Margin="0 0 5 0" Padding="5" Command="{Binding AddCommand}">Добавить</Button>
-			<Button Margin="0 0 5 0" Padding="5" Command="{Binding PropertiesCommand}">Сведения</Button>
 			<Button Margin="0 0 5 0" Padding="5" Command="{Binding RefreshCommand}">Обновить</Button>
-			<Button Margin="0 0 5 0" Padding="5" Command="{Binding EditCommand}">Редактировать</Button>
+			<Button Margin="0 0 5 0" Padding="5" Command="{Binding AddCommand}">Добавить</Button>
 			<Button Margin="0 0 5 0" Padding="5" Command="{Binding ResolveCommand}">Закрыть</Button>
 			<Button Margin="0 0 5 0" Padding="5" Command="{Binding RemoveCommand}">Удалить</Button>
 		</StackPanel>
 		<DataGrid DockPanel.Dock="Top" ItemsSource="{Binding TaskList}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedTask}" CanUserAddRows="False">
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="№" Binding="{Binding No}" />
-				<DataGridTextColumn Header="Заголовок" Binding="{Binding Name}" />
-				<DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}" />
-				<DataGridTextColumn Header="Тип заявки" Binding="{Binding IssueType}" />
-				<DataGridTextColumn Header="Приоритет" Binding="{Binding Priority}" />
-				<DataGridTextColumn Header="Заявитель" Binding="{Binding ReporterName}" />
-				<DataGridTextColumn Header="Статус" Binding="{Binding IssueStatus}" />
-				<DataGridTextColumn Header="Дата создания" Binding="{Binding OpenDate}" />
+				<DataGridTextColumn Header="№"				Binding="{Binding No}" />
+				<DataGridTextColumn Header="Заголовок"		Binding="{Binding Name}" />
+				<DataGridTextColumn Header="Комментарий"	Binding="{Binding Comment}" />
+				<DataGridTextColumn Header="Тип заявки"		Binding="{Binding IssueType}" />
+				<DataGridTextColumn Header="Приоритет"		Binding="{Binding Priority}" />
+				<DataGridTextColumn Header="Заявитель"		Binding="{Binding ReporterName}" />
+				<DataGridTextColumn Header="Статус"			Binding="{Binding IssueStatus}" />
+				<DataGridTextColumn Header="Дата создания"	Binding="{Binding OpenDate}" />
 			</DataGrid.Columns>
 		</DataGrid>
 	</DockPanel>

@@ -1,7 +1,6 @@
 ﻿<Window x:Class="AutoID.Views.MainView"
 		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		xmlns:vm="clr-namespace:AutoID.ViewModels"
 		xmlns:views="clr-namespace:AutoID.Views"
 		Title="AutoID Manager"
 		Height="350" Width="525">
@@ -11,6 +10,9 @@
 		</TabItem>
 		<TabItem Header="Оборудование">
 			<views:EquipmentView />
+		</TabItem>
+		<TabItem Header="Обслуживание">
+			<views:ServiceView />
 		</TabItem>
 	</TabControl>
 </Window>

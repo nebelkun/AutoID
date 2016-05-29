@@ -1,11 +1,12 @@
-﻿using AutoID.Models;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using DAL.Entities;
 
 namespace DAL
 {
 	public class AutoIDContext : DbContext
 	{
 		public DbSet<Machine> Machines { get; set; }
-		public DbSet<AutoID.Models.Task> Tasks { get; set; }
+		public DbSet<Task> Tasks { get; set; }
+		public DbSet<Service> Services { get; set; }
 	}
 }

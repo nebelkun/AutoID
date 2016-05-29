@@ -8,7 +8,7 @@ using System.Windows.Data;
 
 namespace AutoID.Converters
 {
-	class PriorityToColorConverter :IValueConverter
+	internal class PriorityToColorConverter :IValueConverter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{

@@ -2,7 +2,6 @@
 using AutoID.Views;
 using Common.Helpers.WPF;
 using DAL;
-using AutoID.DataHolders;
 using AutoID.Helpers;
 using System;
 
@@ -15,16 +14,11 @@ namespace AutoID.ViewModels
 			AddCommand = new RelayCommand(OnAdd);
 			ResolveCommand = new RelayCommand(OnResolve, CanClose);
 			RemoveCommand = new RelayCommand(OnRemoveCommand, CanRemove);
-			EditCommand = new RelayCommand(OnEdit, CanEdit);
+			RefreshCommand = new RelayCommand(OnRefresh);
 			FillTaskList();
 		}
 
-		private bool CanEdit()
-		{
-			throw new NotImplementedException();
-		}
-
-		private void OnEdit()
+		void OnRefresh()
 		{
 			throw new NotImplementedException();
 		}
@@ -78,8 +72,6 @@ namespace AutoID.ViewModels
 		public ObservableCollection<TaskViewModel> TaskList { get; set; }
 
 		public RelayCommand AddCommand { get; set; }
-		public RelayCommand EditCommand { get; set; }
-		public RelayCommand PropertiesCommand { get; set; }
 		public RelayCommand RefreshCommand { get; set; }
 		public RelayCommand ResolveCommand { get; set; }
 		public RelayCommand RemoveCommand { get; set; }

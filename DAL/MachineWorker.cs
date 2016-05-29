@@ -1,7 +1,7 @@
-﻿using AutoID.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DAL.Entities;
 
 namespace DAL
 {
@@ -69,7 +69,7 @@ namespace DAL
 							  where m.Id == machine.Id
 							  select m).SingleOrDefault();
 
-				if (machine != null)
+				if (entity != null)
 				{
 					entity.Comment = machine.Comment;
 					entity.Department = machine.Department;
