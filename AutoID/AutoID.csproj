@@ -89,7 +89,7 @@
     <Compile Include="DataHolders\IssuePriority.cs" />
     <Compile Include="DataHolders\IssueType.cs" />
     <Compile Include="Helpers\EntityViewModelConverter.cs" />
-    <Compile Include="Helpers\NpoiWorker.cs" />
+    <Compile Include="Helpers\ExportHelper.cs" />
     <Compile Include="ViewModels\AddTaskViewModel.cs" />
     <Compile Include="ViewModels\EquipmentViewModel.cs" />
     <Compile Include="ViewModels\HelpdeskViewModel.cs" />

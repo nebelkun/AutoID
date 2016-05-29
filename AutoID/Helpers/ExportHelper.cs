@@ -2,14 +2,15 @@
 using System.Data;
 using System.IO;
 using AutoID.ViewModels;
+using NPOI.HSSF.Record;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 
 namespace AutoID.Helpers
 {
-	public static class NpoiWorker
+	public static class ExportHelper
 	{
-		public static void ExportMachineList(string filePath, string fileName, IEnumerable<MachineViewModel> equipmentList)
+		public static bool MachineList(string filePath, string fileName, IEnumerable<MachineViewModel> equipmentList)
 		{
 			DataTable dt = new DataTable();
 
@@ -53,12 +54,13 @@ namespace AutoID.Helpers
 				dt.Rows.Add(dr);
 			}
 
-			SaveToFile(filePath, fileName, dt);
+			return SaveToFile(filePath, fileName, dt);
 		}
-		public static void ExportTaskList(string filePath, string fileName, IEnumerable<TaskViewModel> taskList)
+		public static bool TaskList(string filePath, string fileName, IEnumerable<TaskViewModel> taskList)
 		{
 			DataTable dt = new DataTable();
 
+			dt.Columns.Add(new DataColumn());
 			dt.Columns.Add(new DataColumn());
 			dt.Columns.Add(new DataColumn());
 			dt.Columns.Add(new DataColumn());
@@ -95,14 +97,50 @@ namespace AutoID.Helpers
 				dt.Rows.Add(dr);
 			}
 
-			SaveToFile(filePath, fileName, dt);
+			return SaveToFile(filePath, fileName, dt);
+		}
+		public static bool ServiceList(string filePath, string fileName, IEnumerable<TaskViewModel> taskList)
+		{
+			DataTable dt = new DataTable();
+
+			dt.Columns.Add(new DataColumn());
+			dt.Columns.Add(new DataColumn());
+			dt.Columns.Add(new DataColumn());
+			dt.Columns.Add(new DataColumn());
+			dt.Columns.Add(new DataColumn());
+
+			DataRow dr = dt.NewRow();
+			dr[0] = "Id";
+			dr[1] = "Периодичность";
+			dr[2] = "Название";
+			dr[3] = "Комментарий";
+			dr[4] = "Ответственный";
+			dr[5] = "Заявитель";
+			dt.Rows.Add(dr);
+
+			foreach (TaskViewModel task in taskList)
+			{
+				dr = dt.NewRow();
+				dr[0] = task.No;
+				dr[1] = task.Name;
+				dr[2] = task.Comment;
+				dr[3] = task.IssueType;
+				dr[4] = task.Priority;
+				dr[5] = task.ReporterName;
+				dr[6] = task.IssueStatus;
+				dr[7] = task.OpenDate;
+				dr[8] = task.ClosedDate;
+				dt.Rows.Add(dr);
+			}
+
+			return SaveToFile(filePath, fileName, dt);
 		}
 
-		static void SaveToFile(string filePath, string fileName, DataTable dt)
+		static bool SaveToFile(string filePath, string fileName, DataTable dt)
 		{
 			if (!Directory.Exists(filePath))
 				Directory.CreateDirectory(filePath);
-			using (FileStream stream = new FileStream(Path.Combine(filePath, fileName, ".xlsx"), FileMode.Create, FileAccess.Write))
+			using (FileStream stream = new FileStream(Path.Combine(filePath, fileName+".xlsx"), FileMode.Create, FileAccess.Write))
 			{
 				IWorkbook wb = new XSSFWorkbook();
 				ISheet sheet = wb.CreateSheet("Лист 1");
@@ -119,6 +157,7 @@ namespace AutoID.Helpers
 				}
 				wb.Write(stream);
 			}
+			return true;
 		}
 	}
 }

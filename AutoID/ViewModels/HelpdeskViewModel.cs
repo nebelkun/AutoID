@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using AutoID.Views;
 using Common.Helpers.WPF;
 using DAL;
 using AutoID.Helpers;
-using System;
 
 namespace AutoID.ViewModels
 {
@@ -15,12 +15,18 @@ namespace AutoID.ViewModels
 			ResolveCommand = new RelayCommand(OnResolve, CanClose);
 			RemoveCommand = new RelayCommand(OnRemoveCommand, CanRemove);
 			RefreshCommand = new RelayCommand(OnRefresh);
+			ExportCommand = new RelayCommand(OnExport);
 			FillTaskList();
+		}
+
+		void OnExport()
+		{
+			MessageBox.Show(ExportHelper.TaskList("C:\\", "HelpdeskExport", TaskList) ? "Экспорт завершён" : "Ошибка экспорта");
 		}
 
 		void OnRefresh()
 		{
-			throw new NotImplementedException();
+			FillTaskList();
 		}
 
 		void FillTaskList()
@@ -31,6 +37,7 @@ namespace AutoID.ViewModels
 			{
 				TaskList.Add(EntityViewModelConverter.Convert(item));
 			}
+			OnPropertyChanged(() => TaskList);
 		}
 
 		bool CanRemove()
@@ -45,6 +52,7 @@ namespace AutoID.ViewModels
 
 		void OnRemoveCommand()
 		{
+			TaskWorker.RemoveTask(SelectedTask.Id);
 			TaskList.Remove(SelectedTask);
 		}
 
@@ -75,5 +83,6 @@ namespace AutoID.ViewModels
 		public RelayCommand RefreshCommand { get; set; }
 		public RelayCommand ResolveCommand { get; set; }
 		public RelayCommand RemoveCommand { get; set; }
+		public RelayCommand ExportCommand { get; set; }
 	}
 }

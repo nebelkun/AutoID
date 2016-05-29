@@ -31,6 +31,7 @@ namespace AutoID.ViewModels
 		{
 			Task = new TaskViewModel
 			{
+				Name = Name,
 				AssigneeName = AssigneeName,
 				Comment = Comment,
 				IssueType = SelectedIssueType,

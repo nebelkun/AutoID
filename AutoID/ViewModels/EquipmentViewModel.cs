@@ -21,7 +21,7 @@ namespace AutoID.ViewModels
 
 		void OnExport()
 		{
-			NpoiWorker.ExportMachineList("C:\\", "test", EquipmentList);
+			ExportHelper.MachineList("C:\\", "test", EquipmentList);
 		}
 
 		void FillEquipment()
