@@ -11,8 +11,5 @@
 		<TabItem Header="Оборудование">
 			<views:EquipmentView />
 		</TabItem>
-		<TabItem Header="Обслуживание">
-			<views:ServiceView />
-		</TabItem>
 	</TabControl>
 </Window>

@@ -96,7 +96,6 @@
     <Compile Include="ViewModels\MachineViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ResolveTaskViewModel.cs" />
-    <Compile Include="ViewModels\ServicesViewModel.cs" />
     <Compile Include="Views\EquipmentView.xaml.cs">
       <DependentUpon>EquipmentView.xaml</DependentUpon>
     </Compile>
@@ -105,9 +104,6 @@
     </Compile>
     <Compile Include="Views\ResolveTaskView.xaml.cs">
       <DependentUpon>ResolveTaskView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ServicesView.xaml.cs">
-      <DependentUpon>ServicesView.xaml</DependentUpon>
     </Compile>
     <Page Include="DataTemplates\DataTemplates.xaml">
       <SubType>Designer</SubType>
@@ -142,10 +138,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ResolveTaskView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ServicesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
