@@ -2,6 +2,9 @@
 using Common.Helpers;
 using DAL;
 using System.Windows;
+using AutoID.Helpers;
+using AutoID.ViewModels;
+using AutoIDClient.Views;
 using DAL.Entities;
 
 namespace AutoIDClient.ViewModels
@@ -10,9 +13,9 @@ namespace AutoIDClient.ViewModels
 	{
 		public MainViewModel()
 		{
-
 			RegisterCommand = new RelayCommand(OnRegister, CanRegister);
 			UpdateCommand = new RelayCommand(OnUpdate, CanUpdate);
+			AddTaskCommand = new RelayCommand(OnAddTask);
 			CPU = HardwareInfoGetter.GetProcessorId();
 			RamVolume = HardwareInfoGetter.GetPhysicalMemory();
 			HddSN = HardwareInfoGetter.GetHDDSerialNo();
@@ -50,6 +53,18 @@ namespace AutoIDClient.ViewModels
 			}
 		}
 
+		void OnAddTask()
+		{
+			AddTaskView view = new AddTaskView();
+			var vm = new AddTaskViewModel();
+			view.DataContext = vm;
+			var dialogResult = view.ShowDialog();
+			if (dialogResult != null && (bool)dialogResult)
+			{
+				MessageBox.Show(TaskWorker.NewTask(EntityViewModelConverter.Convert(vm.Task)) ? "Задание добавлено.":"Ошибка добавления задания.");
+			}
+		}
+
 		bool _isRegistered;
 
 		bool CanUpdate(object obj)
@@ -77,6 +92,8 @@ namespace AutoIDClient.ViewModels
 		public RelayCommand RegisterCommand { get; set; }
 
 		public RelayCommand UpdateCommand { get; set; }
+
+		public RelayCommand AddTaskCommand { get; set; }
 
 		public string CPU { get; set; }
 		public string RamVolume { get; set; }

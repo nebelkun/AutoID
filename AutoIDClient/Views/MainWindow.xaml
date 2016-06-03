@@ -29,6 +29,7 @@
 		<StackPanel Grid.Row="1" Orientation="Horizontal">
 			<Button Margin="5 0 5 5" Padding="5 0" Command="{Binding RegisterCommand}" HorizontalAlignment="Stretch" Content="Зарегистрировать компьютер" />
 			<Button Margin="5 0 5 5" Padding="5 0" Command="{Binding UpdateCommand}" HorizontalAlignment="Stretch" Content="Обновить запись" />
+			<Button Margin="5 0 5 5" Padding="5 0" Command="{Binding AddTaskCommand}" HorizontalAlignment="Stretch" Content="Заявить о проблеме" />
 		</StackPanel>
 	</Grid>
 </Window>

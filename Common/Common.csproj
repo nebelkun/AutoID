@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NPOI, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.3.1, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,12 +52,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataHolders\IssuePriority.cs" />
+    <Compile Include="DataHolders\IssueStatus.cs" />
+    <Compile Include="DataHolders\IssueType.cs" />
+    <Compile Include="Helpers\EntityViewModelConverter.cs" />
+    <Compile Include="Helpers\ExportHelper.cs" />
     <Compile Include="Helpers\HardwareInfoGetter.cs" />
     <Compile Include="Helpers\WPF\BaseViewModel.cs" />
     <Compile Include="Helpers\WPF\EnumerationExtension.cs" />
     <Compile Include="Helpers\WPF\NotifyPropertyChangedHelper.cs" />
     <Compile Include="Helpers\WPF\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\MachineViewModel.cs" />
+    <Compile Include="ViewModels\TaskViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
