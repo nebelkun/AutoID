@@ -1,5 +1,5 @@
-﻿using System.Data.Entity;
-using DAL.Entities;
+﻿using DAL.Entities;
+using System.Data.Entity;
 
 namespace DAL
 {
@@ -8,5 +8,6 @@ namespace DAL
 		public DbSet<Machine> Machines { get; set; }
 		public DbSet<Task> Tasks { get; set; }
 		public DbSet<Service> Services { get; set; }
+		public DbSet<SparePart> SpareParts { get; set; }
 	}
 }

@@ -89,15 +89,28 @@
     <Compile Include="ViewModels\EquipmentViewModel.cs" />
     <Compile Include="ViewModels\HelpdeskViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\OtherViewModel.cs" />
     <Compile Include="ViewModels\ResolveTaskViewModel.cs" />
+    <Compile Include="ViewModels\ServiceViewModel.cs" />
+    <Compile Include="ViewModels\SparePartsViewModel.cs" />
+    <Compile Include="ViewModels\SparePartViewModel.cs" />
     <Compile Include="Views\EquipmentView.xaml.cs">
       <DependentUpon>EquipmentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HelpdeskView.xaml.cs">
       <DependentUpon>HelpdeskView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\OtherView.xaml.cs">
+      <DependentUpon>OtherView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ResolveTaskView.xaml.cs">
       <DependentUpon>ResolveTaskView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ServiceView.xaml.cs">
+      <DependentUpon>ServiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SparePartsView.xaml.cs">
+      <DependentUpon>SparePartsView.xaml</DependentUpon>
     </Compile>
     <Page Include="DataTemplates\DataTemplates.xaml">
       <SubType>Designer</SubType>
@@ -130,7 +143,19 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\OtherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ResolveTaskView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ServiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SparePartsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

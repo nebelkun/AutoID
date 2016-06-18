@@ -11,5 +11,14 @@
 		<TabItem Header="Оборудование">
 			<views:EquipmentView />
 		</TabItem>
+		<TabItem Header="Обcлуживание">
+			<views:ServiceView />
+		</TabItem>
+		<TabItem Header="Зап. части">
+			<views:SparePartsView />
+		</TabItem>
+		<TabItem Header="Прочее">
+			<views:OtherView />
+		</TabItem>
 	</TabControl>
 </Window>

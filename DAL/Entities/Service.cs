@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DAL.Entities
 {
@@ -10,5 +11,6 @@ namespace DAL.Entities
 		public string Comment { get; set; }
 		public string ReporterName { get; set; }
 		public string AssigneeName { get; set; }
+		public List<Task> Services { get; set; }
 	}
 }

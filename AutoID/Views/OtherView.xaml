@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="AutoID.Views.OtherView"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:viewModels="clr-namespace:AutoID.ViewModels">
+	<UserControl.DataContext>
+		<viewModels:OtherViewModel />
+	</UserControl.DataContext>
+	<StackPanel Orientation="Vertical" Margin="25">
+		<Button Command="{Binding GenerateFakeDataCommand}">Сгенерировать тестовые данные</Button>
+		<Button Command="{Binding SendEmailCommand}">Отправить отчёт на почту.</Button>
+	</StackPanel>
+</UserControl>

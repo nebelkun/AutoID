@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="AutoID.Views.ServiceView"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:viewModels="clr-namespace:AutoID.ViewModels">
+	<UserControl.DataContext>
+		<viewModels:ServiceViewModel />
+	</UserControl.DataContext>
+	<Grid>
+			
+	</Grid>
+</UserControl>
