@@ -40,7 +40,7 @@ namespace DAL
 
 				if (entity != null)
 				{
-					entity.Period = service.Period;
+					entity.PeriodDays = service.PeriodDays;
 					entity.AssigneeName = service.AssigneeName;
 					entity.Comment = service.Comment;
 					entity.Id = service.Id;

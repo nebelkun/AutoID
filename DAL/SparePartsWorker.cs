@@ -16,7 +16,7 @@ namespace DAL
 			}
 		}
 
-		public static bool NewTask(SparePart sparePart)
+		public static bool AddSparePart(SparePart sparePart)
 		{
 			using (var db = new AutoIDContext())
 			{
@@ -29,7 +29,7 @@ namespace DAL
 			}
 		}
 
-		public static bool EditTask(SparePart sparePart)
+		public static bool EditSparePart(SparePart sparePart)
 		{
 			using (var db = new AutoIDContext())
 			{
@@ -53,7 +53,7 @@ namespace DAL
 			}
 		}
 
-		public static bool RemoveTask(Guid id)
+		public static bool RemoveSparePart(Guid id)
 		{
 			using (var db = new AutoIDContext())
 			{
@@ -69,6 +69,5 @@ namespace DAL
 			}
 			return false;
 		}
-
 	}
 }

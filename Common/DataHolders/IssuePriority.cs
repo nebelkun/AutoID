@@ -5,10 +5,10 @@ namespace AutoID.DataHolders
 	public enum IssuePriority
 	{
 		[Description ("Высокий")]
-		Высокий = 1,
+		High = 1,
 		[Description("Средний")]
-		Средний = 2,
+		Medium = 2,
 		[Description("Низкий")]
-		Низкий = 3,
+		Low = 3,
 	}
 }

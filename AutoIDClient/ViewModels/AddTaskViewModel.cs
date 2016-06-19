@@ -37,7 +37,7 @@ namespace AutoID.ViewModels
 				IssueType = SelectedIssueType,
 				Priority = SelectedPriority,
 				ReporterName = ReporterName,
-				IssueStatus = IssueStatus.Открыт,
+				IssueStatus = IssueStatus.Open,
 				OpenDate = DateTime.Now,
 			};
 			window.DialogResult = true;
