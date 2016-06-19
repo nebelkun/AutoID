@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Common.Helpers.WPF;
 using System.Net.Mail;
-using System.Windows.Documents;
 using DAL.Entities;
 
 namespace AutoID.ViewModels

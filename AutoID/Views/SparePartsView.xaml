@@ -20,10 +20,9 @@
 				  SelectionMode="Single"
 				  CanUserAddRows="False">
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="№"				Binding="{Binding No}" />
-				<DataGridTextColumn Header="Наименование"	Binding="{Binding Name}" />
-				<DataGridTextColumn Header="Комментарий"	Binding="{Binding Comment}" />
-				<DataGridTextColumn Header="Количество"		Binding="{Binding OpenDate}" />
+				<DataGridTextColumn Header="Комментарий"	Binding="{Binding Name}" />
+				<DataGridTextColumn Header="Наименование"	Binding="{Binding Article}" />
+				<DataGridTextColumn Header="Количество"		Binding="{Binding Quantity}" />
 			</DataGrid.Columns>
 		</DataGrid>
 	</DockPanel>

@@ -1,7 +1,7 @@
 ﻿<UserControl x:Class="AutoID.Views.ServiceView"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:viewModels="clr-namespace:AutoID.ViewModels">
+			 xmlns:viewModels="clr-namespace:AutoID.ViewModels;assembly=Common">
 	<UserControl.DataContext>
 		<viewModels:ServiceViewModel />
 	</UserControl.DataContext>

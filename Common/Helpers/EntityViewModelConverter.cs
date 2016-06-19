@@ -1,10 +1,12 @@
-﻿using AutoID.DataHolders;
-using AutoID.ViewModels;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Linq;
+using AutoID.DataHolders;
+using AutoID.ViewModels;
 using DAL.Entities;
 
-namespace AutoID.Helpers
+namespace Common.Helpers
 {
 	public static class EntityViewModelConverter
 	{
@@ -46,7 +48,7 @@ namespace AutoID.Helpers
 		{
 			return new Machine
 			{
-				Comment =machine.Comment,
+				Comment = machine.Comment,
 				CPUID = machine.CPUID,
 				Department = machine.Department,
 				HardDriveId = machine.HardDriveId,
@@ -72,6 +74,54 @@ namespace AutoID.Helpers
 				OS = machine.OS,
 				Owner = machine.Owner,
 				Ram = machine.Ram,
+			};
+		}
+
+		public static SparePartViewModel Convert(SparePart sparePart)
+		{
+			return new SparePartViewModel
+			{
+				Id = sparePart.Id,
+				Name = sparePart.Name,
+				Quantity = sparePart.Quantity,
+				Article = sparePart.Article,
+			};
+		}
+		public static SparePart Convert(SparePartViewModel sparePart)
+		{
+			return new SparePart
+			{
+				Id = sparePart.Id,
+				Name = sparePart.Name,
+				Quantity = sparePart.Quantity,
+				Article = sparePart.Article,
+			};
+		}
+
+		public static ServiceViewModel Convert(Service servie)
+		{
+			return new ServiceViewModel
+			{
+				Name = servie.Name,
+				Id = servie.Id,
+				Comment = servie.Comment,
+				AssigneeName = servie.AssigneeName,
+				ReporterName = servie.ReporterName,
+				PeriodDays = servie.PeriodDays,
+				Services = servie.Services.Select(Convert).ToList(),
+			};
+		}
+		public static Service Convert(ServiceViewModel servie)
+		{
+			return new Service
+			{
+				Name = servie.Name,
+				Id = servie.Id,
+				Comment = servie.Comment,
+				AssigneeName = servie.AssigneeName,
+				ReporterName = servie.ReporterName,
+				PeriodDays = servie.PeriodDays,
+				Services = servie.Services.Select(Convert).ToList(),
 			};
 		}
 	}

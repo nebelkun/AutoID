@@ -1,9 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows;
+using System.Windows.Forms;
 using Common.Helpers.WPF;
 using DAL;
 using AutoID.Helpers;
+using Common.Helpers;
 using DAL.Entities;
+using MessageBox = System.Windows.MessageBox;
 
 namespace AutoID.ViewModels
 {
@@ -19,7 +21,15 @@ namespace AutoID.ViewModels
 
 		void OnExport()
 		{
-			MessageBox.Show(ExportHelper.MachineList("C:\\", "MachineList", EquipmentList) ? "Экспорт завершён" : "Ошибка экспорта");
+			var dialog = new FolderBrowserDialog
+			{
+				Description = "Выберите папку для экспорта:",
+				ShowNewFolderButton = true,
+			};
+			if (dialog.ShowDialog() == DialogResult.OK)
+			{
+				MessageBox.Show(ExportHelper.MachineList(dialog.SelectedPath, "MachineList", EquipmentList) ? "Экспорт завершён" : "Ошибка экспорта");
+			}
 		}
 
 		void FillEquipment()

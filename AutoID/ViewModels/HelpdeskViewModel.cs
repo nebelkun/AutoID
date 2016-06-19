@@ -1,9 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows;
+using System.Windows.Forms;
 using AutoID.Views;
 using Common.Helpers.WPF;
 using DAL;
 using AutoID.Helpers;
+using Common.Helpers;
+using MessageBox = System.Windows.MessageBox;
 
 namespace AutoID.ViewModels
 {
@@ -21,7 +23,15 @@ namespace AutoID.ViewModels
 
 		void OnExport()
 		{
-			MessageBox.Show(ExportHelper.TaskList("C:\\", "HelpdeskExport", TaskList) ? "Экспорт завершён" : "Ошибка экспорта");
+			var dialog = new FolderBrowserDialog
+			{
+				Description = "Выберите папку для экспорта:",
+				ShowNewFolderButton = true,
+			};
+			if (dialog.ShowDialog() == DialogResult.OK)
+			{
+				MessageBox.Show(ExportHelper.TaskList(dialog.SelectedPath, "HelpdeskExport", TaskList) ? "Экспорт завершён" : "Ошибка экспорта");
+			}
 		}
 
 		void OnRefresh()
@@ -58,8 +68,10 @@ namespace AutoID.ViewModels
 
 		void OnResolve()
 		{
-			ResolveTaskView view = new ResolveTaskView();
-			view.DataContext = new ResolveTaskViewModel(SelectedTask);
+			ResolveTaskView view = new ResolveTaskView
+			{
+				DataContext = new ResolveTaskViewModel(SelectedTask),
+			};
 			view.ShowDialog();
 		}
 
