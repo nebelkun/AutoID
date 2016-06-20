@@ -93,6 +93,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\OtherViewModel.cs" />
     <Compile Include="ViewModels\ResolveTaskViewModel.cs" />
+    <Compile Include="ViewModels\ServicesViewModel.cs" />
     <Compile Include="ViewModels\SparePartsViewModel.cs" />
     <Compile Include="Views\ConfigureEmailView.xaml.cs">
       <DependentUpon>ConfigureEmailView.xaml</DependentUpon>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Common.Helpers.WPF;
-using DAL.Entities;
 
 namespace AutoID.ViewModels
 {
@@ -13,6 +13,13 @@ namespace AutoID.ViewModels
 		public string Comment { get; set; }
 		public string ReporterName { get; set; }
 		public string AssigneeName { get; set; }
+		public DateTime LastTimeServiced { get
+		{
+			var taskViewModel = Services.OrderByDescending(x => x.ClosedDate).FirstOrDefault();
+			if (taskViewModel?.ClosedDate != null) return (DateTime) taskViewModel.ClosedDate;
+			return DateTime.MinValue;
+		}
+		}
 		public List<TaskViewModel> Services { get; set; }
 	}
 }
