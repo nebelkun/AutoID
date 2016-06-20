@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AutoID.Views;
 using Common.Helpers.WPF;
 using DAL.Entities;
 
@@ -15,7 +16,8 @@ namespace AutoID.ViewModels
 
 		void OnConfigureEmail()
 		{
-			throw new NotImplementedException();
+			var view = new ConfigureEmailView {DataContext = new ConfigureEmailViewModel()};
+			view.ShowDialog();
 		}
 
 		public RelayCommand GenerateFakeDataCommand { get; set; }

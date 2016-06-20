@@ -87,12 +87,16 @@
     </ApplicationDefinition>
     <Compile Include="Converters\PriorityToColorConverter.cs" />
     <Compile Include="ViewModels\AddTaskViewModel.cs" />
+    <Compile Include="ViewModels\ConfigureEmailViewModel.cs" />
     <Compile Include="ViewModels\EquipmentViewModel.cs" />
     <Compile Include="ViewModels\HelpdeskViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\OtherViewModel.cs" />
     <Compile Include="ViewModels\ResolveTaskViewModel.cs" />
     <Compile Include="ViewModels\SparePartsViewModel.cs" />
+    <Compile Include="Views\ConfigureEmailView.xaml.cs">
+      <DependentUpon>ConfigureEmailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EquipmentView.xaml.cs">
       <DependentUpon>EquipmentView.xaml</DependentUpon>
     </Compile>
@@ -116,6 +120,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddTaskView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConfigureEmailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

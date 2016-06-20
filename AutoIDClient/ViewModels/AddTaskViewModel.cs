@@ -2,6 +2,7 @@
 using AutoID.DataHolders;
 using Common.Helpers.WPF;
 using System.Windows;
+using Common.Helpers;
 
 namespace AutoID.ViewModels
 {
@@ -40,6 +41,7 @@ namespace AutoID.ViewModels
 				IssueStatus = IssueStatus.Open,
 				OpenDate = DateTime.Now,
 			};
+			EmailHelper.Send($"У вас новое задание от {ReporterName}.");
 			window.DialogResult = true;
 			window.Close();
 		}

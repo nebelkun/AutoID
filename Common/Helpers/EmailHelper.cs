@@ -23,13 +23,12 @@ namespace Common.Helpers
 				UseDefaultCredentials = false,
 				Credentials = new NetworkCredential(config.EmailFrom, config.EmailFromPassword)
 			};
-			using (var message = new MailMessage(config.EmailFrom, config.EmailTo)
+			using (var message = new MailMessage(config.EmailFrom, config.EmailTo))
 			{
-				Subject = config.EmailSubject,
-				Body = body,
-				Attachments = { attachment },
-			})
-			{
+				message.Subject = config.EmailSubject;
+				message.Body = body;
+				if (attachment!=null)
+				message.Attachments.Add(attachment);
 				smtp.Send(message);
 			}
 			return true;
