@@ -5,8 +5,8 @@
 	<UserControl.DataContext>
 		<viewModels:OtherViewModel />
 	</UserControl.DataContext>
-	<StackPanel Orientation="Vertical" Margin="25">
-		<Button Command="{Binding GenerateFakeDataCommand}">Сгенерировать тестовые данные</Button>
-		<Button Command="{Binding SendEmailCommand}">Отправить отчёт на почту.</Button>
+	<StackPanel Orientation="Vertical" Margin="20">
+		<Button Margin="10" Padding="10 5" Command="{Binding GenerateFakeDataCommand}" HorizontalAlignment="Center">Сгенерировать тестовые данные</Button>
+		<Button Margin="10" Padding="10 5" Command="{Binding ConfigureEmailCommand}" HorizontalAlignment="Center">Сконфигурировать почту</Button>
 	</StackPanel>
 </UserControl>

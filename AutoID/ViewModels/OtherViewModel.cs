@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
 using Common.Helpers.WPF;
-using System.Net.Mail;
 using DAL.Entities;
 
 namespace AutoID.ViewModels
@@ -11,12 +9,11 @@ namespace AutoID.ViewModels
 	{
 		public OtherViewModel()
 		{
-
 			GenerateFakeDataCommand = new RelayCommand(OnGenerateData);
-			ConfigureCommand = new RelayCommand(OnConfigure);
+			ConfigureEmailCommand = new RelayCommand(OnConfigureEmail);
 		}
 
-		void OnConfigure()
+		void OnConfigureEmail()
 		{
 			throw new NotImplementedException();
 		}
@@ -67,15 +64,15 @@ namespace AutoID.ViewModels
 					Comment = "Комментарий к тестовой задаче №"+i,
 					ReporterName = "Семён стрельцов",
 					AssigneeName = "Михаил Земсков",
-					IssueStatus = i%4,
-					IssueType = i%7,
-					Priority = i%4,
+					IssueStatus = i%3,
+					IssueType = i%6,
+					Priority = i%3,
 					OpenDate = DateTime.Now,
 					No = i,
 				});
 			}
 		}
 
-		public RelayCommand ConfigureCommand { get; set; }
+		public RelayCommand ConfigureEmailCommand { get; set; }
 	}
 }

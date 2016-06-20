@@ -1,6 +1,13 @@
-﻿<Window x:Class="AutoID.Views.AddTaskView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		Title="Добавление нового задания" xmlns:vm="clr-namespace:AutoID.ViewModels" xmlns:local="clr-namespace:AutoID.DataHolders"
-		xmlns:enumExt="clr-namespace:Common.Helpers.WPF;assembly=Common" Height="300" Width="300" Name="window">
+﻿<Window x:Class="AutoID.Views.AddTaskView"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Title="Добавление нового задания"
+		xmlns:vm="clr-namespace:AutoID.ViewModels"
+		xmlns:enumExt="clr-namespace:Common.Helpers.WPF;assembly=Common"
+		xmlns:dataHolders="clr-namespace:AutoID.DataHolders;assembly=Common"
+		Height="300" Width="300"
+		MinHeight="300" MinWidth="300"
+		Name="window">
 	<Window.DataContext>
 		<vm:AddTaskViewModel />
 	</Window.DataContext>
@@ -22,14 +29,14 @@
 				<RowDefinition Height="25" />
 			</Grid.RowDefinitions>
 			<TextBlock Grid.Column="0" Grid.Row="0">Тип проблемы</TextBlock>
-			<ComboBox Grid.Column="1" Grid.Row="0" DisplayMemberPath="Description" ItemsSource="{Binding Source={enumExt:Enumeration {x:Type local:IssueType}}}"
+			<ComboBox Grid.Column="1" Grid.Row="0" DisplayMemberPath="Description" ItemsSource="{Binding Source={enumExt:Enumeration {x:Type dataHolders:IssueType}}}"
 					SelectedValue="{Binding SelectedIssueType}" SelectedValuePath="Value"></ComboBox>
 			<TextBlock Grid.Column="0" Grid.Row="1">Название</TextBlock>
 			<TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Name}"></TextBox>
 			<TextBlock Grid.Column="0" Grid.Row="2">Комментарий</TextBlock>
 			<TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Comment}"></TextBox>
 			<TextBlock Grid.Column="0" Grid.Row="3">Срочность</TextBlock>
-			<ComboBox Grid.Column="1" Grid.Row="3" DisplayMemberPath="Description" ItemsSource="{Binding Source={enumExt:Enumeration {x:Type local:IssuePriority}}}"
+			<ComboBox Grid.Column="1" Grid.Row="3" DisplayMemberPath="Description" ItemsSource="{Binding Source={enumExt:Enumeration {x:Type dataHolders:IssuePriority}}}"
 					SelectedValue="{Binding SelectedPriority}" SelectedValuePath="Value"></ComboBox>
 			<TextBlock Grid.Column="0" Grid.Row="4" Text="Автор заявки" />
 			<TextBox Text="{Binding ReporterName}" Grid.Column="1" Grid.Row="4"></TextBox>

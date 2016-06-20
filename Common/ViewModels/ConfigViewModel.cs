@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Common.Helpers.WPF;
 
-namespace DAL.Entities
+namespace AutoID.ViewModels
 {
-	public class Config
+	public class ConfigViewModel:BaseViewModel
 	{
-		public Guid Id { get; set; }
 		public string SMTPServer { get; set; }
 		public int SMTPPort { get; set; }
 		public bool UseSSL { get; set; }
@@ -12,6 +11,5 @@ namespace DAL.Entities
 		public string EmailFrom { get; set; }
 		public string EmailFromPassword { get; set; }
 		public string EmailSubject { get; set; }
-
 	}
 }

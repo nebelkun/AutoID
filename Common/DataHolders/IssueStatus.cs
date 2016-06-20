@@ -5,10 +5,10 @@ namespace AutoID.DataHolders
 	public enum IssueStatus
 	{
 		[Description("Открыт")]
-		Open = 1,
+		Open = 0,
 		[Description("В работе")]
-		InProgress = 2,
+		InProgress = 1,
 		[Description("Завершен")]
-		Closed = 3,
+		Closed = 2,
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Forms;
+using AutoID.DataHolders;
 using AutoID.Views;
 using Common.Helpers.WPF;
 using DAL;
@@ -57,7 +58,7 @@ namespace AutoID.ViewModels
 
 		bool CanClose()
 		{
-			return SelectedTask != null;
+			return SelectedTask != null && SelectedTask.IssueStatus!= IssueStatus.Closed;
 		}
 
 		void OnRemoveCommand()
@@ -72,7 +73,15 @@ namespace AutoID.ViewModels
 			{
 				DataContext = new ResolveTaskViewModel(SelectedTask),
 			};
-			view.ShowDialog();
+
+			if ((bool)view.ShowDialog())
+			{
+				SelectedTask.IssueStatus = IssueStatus.Closed;
+				SelectedTask.Comment = ((ResolveTaskViewModel)view.DataContext).Model.Comment;
+				TaskWorker.EditTask(EntityViewModelConverter.Convert(SelectedTask));
+				OnPropertyChanged(() => TaskList);
+			}
+			
 		}
 
 		void OnAdd()

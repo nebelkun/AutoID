@@ -5,16 +5,16 @@ namespace AutoID.DataHolders
 	public enum IssueType
 	{
 		[Description ("Поломка")]
-		Break = 1,
+		Break = 0,
 		[Description("Настройка")]
-		Setup = 2,
+		Setup = 1,
 		[Description("Консультация")]
-		Consultation = 3,
+		Consultation = 2,
+		[Description("Сеть")]
+		Network = 3,
 		[Description("Аппаратная часть")]
 		Hardware = 4,
-		[Description("Сеть")]
-		Network = 5,
 		[Description("Проблемы с ПО")]
-		Software = 6,
+		Software = 5,
 	}
 }

@@ -49,18 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigWorker.cs" />
+    <Compile Include="Workers\ConfigWorker.cs" />
     <Compile Include="Entities\Config.cs" />
     <Compile Include="Entities\Machine.cs" />
     <Compile Include="Entities\Service.cs" />
     <Compile Include="Entities\SparePart.cs" />
     <Compile Include="Entities\Task.cs" />
     <Compile Include="AutoIDContext.cs" />
-    <Compile Include="MachineWorker.cs" />
+    <Compile Include="Workers\MachineWorker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceWorker.cs" />
-    <Compile Include="SparePartsWorker.cs" />
-    <Compile Include="TaskWorker.cs" />
+    <Compile Include="Workers\ServiceWorker.cs" />
+    <Compile Include="Workers\SparePartsWorker.cs" />
+    <Compile Include="Workers\TaskWorker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
