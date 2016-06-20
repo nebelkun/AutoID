@@ -1,6 +1,4 @@
-﻿using System;
-using Common.Helpers.WPF;
-using AutoID.Views;
+﻿using Common.Helpers.WPF;
 
 namespace AutoID.ViewModels
 {

@@ -9,5 +9,6 @@ namespace DAL
 		public DbSet<Task> Tasks { get; set; }
 		public DbSet<Service> Services { get; set; }
 		public DbSet<SparePart> SpareParts { get; set; }
+		public DbSet<Config> Configs { get; set; }
 	}
 }

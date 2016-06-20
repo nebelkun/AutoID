@@ -55,6 +55,7 @@
     <Compile Include="DataHolders\IssuePriority.cs" />
     <Compile Include="DataHolders\IssueStatus.cs" />
     <Compile Include="DataHolders\IssueType.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\EntityViewModelConverter.cs" />
     <Compile Include="Helpers\ExportHelper.cs" />
     <Compile Include="Helpers\HardwareInfoGetter.cs" />

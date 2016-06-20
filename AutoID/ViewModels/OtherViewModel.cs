@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using Common.Helpers.WPF;
 using System.Net.Mail;
 using DAL.Entities;
@@ -8,34 +9,16 @@ namespace AutoID.ViewModels
 {
 	public class OtherViewModel : BaseViewModel
 	{
-		public string Email { get; set; }
-
-		public string Subject { get; set; }
-
-		public string Body { get; set; }
-
 		public OtherViewModel()
 		{
-			Email = "dreamwalkerzmm@gmail.com";
-			Subject = "Уведомнение AutoID";
-			Body = "/n/n С уважением, клиентское приложение AutoID.";
-			SendEmailCommand = new RelayCommand(OnSendEmail);
+
 			GenerateFakeDataCommand = new RelayCommand(OnGenerateData);
+			ConfigureCommand = new RelayCommand(OnConfigure);
 		}
 
-		public RelayCommand SendEmailCommand { get; set; }
-		void OnSendEmail()
+		void OnConfigure()
 		{
-			MailMessage mail = new MailMessage("NebelKun@AutoID.com", Email);
-			SmtpClient client = new SmtpClient
-			{
-				Port = 25,
-				DeliveryMethod = SmtpDeliveryMethod.Network,
-				Host = "smtp.o2.ie"
-			};
-			mail.Subject = Subject;
-			mail.Body = Body;
-			client.Send(mail);
+			throw new NotImplementedException();
 		}
 
 		public RelayCommand GenerateFakeDataCommand { get; set; }
@@ -92,5 +75,7 @@ namespace AutoID.ViewModels
 				});
 			}
 		}
+
+		public RelayCommand ConfigureCommand { get; set; }
 	}
 }

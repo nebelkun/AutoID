@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigWorker.cs" />
+    <Compile Include="Entities\Config.cs" />
     <Compile Include="Entities\Machine.cs" />
     <Compile Include="Entities\Service.cs" />
     <Compile Include="Entities\SparePart.cs" />
@@ -61,7 +63,9 @@
     <Compile Include="TaskWorker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
