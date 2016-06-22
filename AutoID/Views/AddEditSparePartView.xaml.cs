@@ -17,9 +17,9 @@ namespace AutoID.Views
 	/// <summary>
 	/// Interaction logic for AddSparePartView.xaml
 	/// </summary>
-	public partial class AddSparePartView : Window
+	public partial class AddEditSparePartView : Window
 	{
-		public AddSparePartView()
+		public AddEditSparePartView()
 		{
 			InitializeComponent();
 		}

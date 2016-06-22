@@ -86,7 +86,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\PriorityToColorConverter.cs" />
-    <Compile Include="ViewModels\AddSparePartViewModel.cs" />
+    <Compile Include="ViewModels\AddEditServiceViewModel.cs" />
+    <Compile Include="ViewModels\AddEditSparePartViewModel.cs" />
     <Compile Include="ViewModels\AddTaskViewModel.cs" />
     <Compile Include="ViewModels\ConfigureEmailViewModel.cs" />
     <Compile Include="ViewModels\EquipmentViewModel.cs" />
@@ -96,8 +97,11 @@
     <Compile Include="ViewModels\ResolveTaskViewModel.cs" />
     <Compile Include="ViewModels\ServicesViewModel.cs" />
     <Compile Include="ViewModels\SparePartsViewModel.cs" />
-    <Compile Include="Views\AddSparePartView.xaml.cs">
-      <DependentUpon>AddSparePartView.xaml</DependentUpon>
+    <Compile Include="Views\AddEditServiceView.xaml.cs">
+      <DependentUpon>AddEditServiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditSparePartView.xaml.cs">
+      <DependentUpon>AddEditSparePartView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ConfigureEmailView.xaml.cs">
       <DependentUpon>ConfigureEmailView.xaml</DependentUpon>
@@ -124,7 +128,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddSparePartView.xaml">
+    <Page Include="Views\AddEditServiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditSparePartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

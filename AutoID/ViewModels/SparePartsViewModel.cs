@@ -35,8 +35,8 @@ namespace AutoID.ViewModels
 		public RelayCommand EditCommand { get; set; }
 		void OnEdit()
 		{
-			AddSparePartView view = new AddSparePartView();
-			var vm = new AddSparePartViewModel(SelectedSparePart);
+			AddEditSparePartView view = new AddEditSparePartView();
+			var vm = new AddEditSparePartViewModel(SelectedSparePart);
 			view.DataContext = vm;
 			var dialogResult = view.ShowDialog();
 			if (dialogResult != null && (bool)dialogResult)
@@ -55,8 +55,8 @@ namespace AutoID.ViewModels
 		public RelayCommand AddCommand { get; set; }
 		void OnAdd()
 		{
-			AddSparePartView view = new AddSparePartView();
-			var vm = new AddSparePartViewModel();
+			AddEditSparePartView view = new AddEditSparePartView();
+			var vm = new AddEditSparePartViewModel();
 			view.DataContext = vm;
 			var dialogResult = view.ShowDialog();
 			if (dialogResult != null && (bool)dialogResult)

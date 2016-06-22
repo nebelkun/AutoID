@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace AutoID.ViewModels
 {
-	public class AddSparePartViewModel : BaseViewModel
+	public class AddEditSparePartViewModel : BaseViewModel
 	{
 
 		public string Name { get; set; }
@@ -11,7 +11,7 @@ namespace AutoID.ViewModels
 		public int Quantity { get; set; }
 		public SparePartViewModel SparePart { get; set; }
 
-		public AddSparePartViewModel(SparePartViewModel model = null)
+		public AddEditSparePartViewModel(SparePartViewModel model = null)
 		{
 			SaveCommand = new RelayCommand<Window>(OnSave, CanSave);
 			if (model != null)
