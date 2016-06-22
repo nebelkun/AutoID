@@ -1,8 +1,9 @@
-﻿using Common.Helpers.WPF;
-using System.Collections.ObjectModel;
+﻿using AutoID.Views;
 using Common.Helpers;
+using Common.Helpers.WPF;
 using DAL;
 using DAL.Entities;
+using System.Collections.ObjectModel;
 
 namespace AutoID.ViewModels
 {
@@ -34,7 +35,14 @@ namespace AutoID.ViewModels
 		public RelayCommand EditCommand { get; set; }
 		void OnEdit()
 		{
-			throw new System.NotImplementedException();
+			AddSparePartView view = new AddSparePartView();
+			var vm = new AddSparePartViewModel(SelectedSparePart);
+			view.DataContext = vm;
+			var dialogResult = view.ShowDialog();
+			if (dialogResult != null && (bool)dialogResult)
+			{
+				SparePartsWorker.EditSparePart(EntityViewModelConverter.Convert(vm.SparePart));
+			}
 		}
 
 		public RelayCommand RemoveCommand { get; set; }
@@ -47,7 +55,15 @@ namespace AutoID.ViewModels
 		public RelayCommand AddCommand { get; set; }
 		void OnAdd()
 		{
-			throw new System.NotImplementedException();
+			AddSparePartView view = new AddSparePartView();
+			var vm = new AddSparePartViewModel();
+			view.DataContext = vm;
+			var dialogResult = view.ShowDialog();
+			if (dialogResult != null && (bool)dialogResult)
+			{
+				SpareParts.Add(vm.SparePart);
+				SparePartsWorker.AddSparePart(EntityViewModelConverter.Convert(vm.SparePart));
+			}
 		}
 
 		public RelayCommand RefreshCommand { get; set; }
