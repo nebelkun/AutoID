@@ -1,6 +1,6 @@
-﻿using System.Net;
+﻿using DAL;
+using System.Net;
 using System.Net.Mail;
-using DAL;
 
 namespace Common.Helpers
 {
@@ -9,10 +9,11 @@ namespace Common.Helpers
 		public static bool Send(string body, string attachmentString = "")
 		{
 			var config = ConfigWorker.GetConfig();
-			System.Net.Mail.Attachment attachment = null;
+			Attachment attachment = null;
 			if (!string.IsNullOrEmpty(attachmentString))
 			{
-				attachment = new System.Net.Mail.Attachment(attachmentString);
+				attachment = new Attachment(attachmentString);
+				attachment.Name = "Report.xlsx";
 			}
 			var smtp = new SmtpClient
 			{
@@ -23,12 +24,14 @@ namespace Common.Helpers
 				UseDefaultCredentials = false,
 				Credentials = new NetworkCredential(config.EmailFrom, config.EmailFromPassword)
 			};
+
+
 			using (var message = new MailMessage(config.EmailFrom, config.EmailTo))
 			{
 				message.Subject = config.EmailSubject;
 				message.Body = body;
-				if (attachment!=null)
-				message.Attachments.Add(attachment);
+				if (attachment != null)
+					message.Attachments.Add(attachment);
 				smtp.Send(message);
 			}
 			return true;

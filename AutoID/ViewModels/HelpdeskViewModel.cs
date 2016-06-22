@@ -1,11 +1,12 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Forms;
-using AutoID.DataHolders;
+﻿using AutoID.DataHolders;
+using AutoID.Helpers;
 using AutoID.Views;
+using Common.Helpers;
 using Common.Helpers.WPF;
 using DAL;
-using AutoID.Helpers;
-using Common.Helpers;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Windows.Forms;
 using MessageBox = System.Windows.MessageBox;
 
 namespace AutoID.ViewModels
@@ -19,7 +20,17 @@ namespace AutoID.ViewModels
 			RemoveCommand = new RelayCommand(OnRemoveCommand, CanRemove);
 			RefreshCommand = new RelayCommand(OnRefresh);
 			ExportCommand = new RelayCommand(OnExport);
+			EmailCommand = new RelayCommand(OnEmail);
 			FillTaskList();
+		}
+
+		void OnEmail()
+		{
+			var tmpFile = Path.GetTempFileName();
+
+			ExportHelper.TaskList(Path.GetDirectoryName(tmpFile), Path.GetFileName(tmpFile), TaskList);
+
+			EmailHelper.Send("Задания из приложения AutoID", tmpFile);
 		}
 
 		void OnExport()
@@ -58,7 +69,7 @@ namespace AutoID.ViewModels
 
 		bool CanClose()
 		{
-			return SelectedTask != null && SelectedTask.IssueStatus!= IssueStatus.Closed;
+			return SelectedTask != null && SelectedTask.IssueStatus != IssueStatus.Closed;
 		}
 
 		void OnRemoveCommand()
@@ -81,7 +92,7 @@ namespace AutoID.ViewModels
 				TaskWorker.EditTask(EntityViewModelConverter.Convert(SelectedTask));
 				OnPropertyChanged(() => TaskList);
 			}
-			
+
 		}
 
 		void OnAdd()
@@ -96,6 +107,8 @@ namespace AutoID.ViewModels
 				TaskWorker.NewTask(EntityViewModelConverter.Convert(vm.Task));
 			}
 		}
+
+
 		public TaskViewModel SelectedTask { get; set; }
 
 		public ObservableCollection<TaskViewModel> TaskList { get; set; }
@@ -105,5 +118,6 @@ namespace AutoID.ViewModels
 		public RelayCommand ResolveCommand { get; set; }
 		public RelayCommand RemoveCommand { get; set; }
 		public RelayCommand ExportCommand { get; set; }
+		public RelayCommand EmailCommand { get; set; }
 	}
 }
